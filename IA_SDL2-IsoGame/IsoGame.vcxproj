@@ -87,6 +87,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Army.cpp" />
+    <ClCompile Include="engine\SoldierManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="core\deltatimer.cpp" />
     <ClCompile Include="core\initclose.cpp" />
@@ -104,12 +106,14 @@
     <ClCompile Include="engine\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Army.h" />
     <ClInclude Include="core\deltatimer.hpp" />
     <ClInclude Include="core\initclose.hpp" />
     <ClInclude Include="core\logger.hpp" />
     <ClInclude Include="core\renderer.hpp" />
     <ClInclude Include="core\texture.hpp" />
     <ClInclude Include="core\texture_pool.hpp" />
+    <ClInclude Include="engine\SoldierManager.h" />
     <ClInclude Include="iso\isoEngine.hpp" />
     <ClInclude Include="iso\isoMap.hpp" />
     <ClInclude Include="engine\Agent.hpp" />
