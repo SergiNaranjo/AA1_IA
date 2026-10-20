@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5A7E2C21-F6B1-48B4-B89A-9636691996C3}</ProjectGuid>
+    <RootNamespace>IsoGame</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <!-- Whatever toolset ships with the Visual Studio you open this in (VS 2019, 2022, 2026...). -->
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <!-- Whatever toolset ships with the Visual Studio you open this in (VS 2019, 2022, 2026...). -->
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+    <TargetName>isogame</TargetName>
+    <!-- Run from the project folder so the game finds data\ and logs\ (F5 / Ctrl+F5). -->
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)external\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)external\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="core\deltatimer.cpp" />
+    <ClCompile Include="core\initclose.cpp" />
+    <ClCompile Include="core\logger.cpp" />
+    <ClCompile Include="core\renderer.cpp" />
+    <ClCompile Include="core\texture.cpp" />
+    <ClCompile Include="core\texture_pool.cpp" />
+    <ClCompile Include="iso\isoEngine.cpp" />
+    <ClCompile Include="iso\isoMap.cpp" />
+    <ClCompile Include="engine\Agent.cpp" />
+    <ClCompile Include="engine\Animation.cpp" />
+    <ClCompile Include="engine\DebugDraw.cpp" />
+    <ClCompile Include="engine\Game.cpp" />
+    <ClCompile Include="engine\MapLoader.cpp" />
+    <ClCompile Include="engine\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\deltatimer.hpp" />
+    <ClInclude Include="core\initclose.hpp" />
+    <ClInclude Include="core\logger.hpp" />
+    <ClInclude Include="core\renderer.hpp" />
+    <ClInclude Include="core\texture.hpp" />
+    <ClInclude Include="core\texture_pool.hpp" />
+    <ClInclude Include="iso\isoEngine.hpp" />
+    <ClInclude Include="iso\isoMap.hpp" />
+    <ClInclude Include="engine\Agent.hpp" />
+    <ClInclude Include="engine\Animation.hpp" />
+    <ClInclude Include="engine\DebugDraw.hpp" />
+    <ClInclude Include="engine\Game.hpp" />
+    <ClInclude Include="engine\MapLoader.hpp" />
+    <ClInclude Include="engine\Vector2.hpp" />
+    <ClInclude Include="engine\World.hpp" />
+    <ClInclude Include="engine\WorldObject.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\maps\demo.map" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <!-- Put SDL2.dll / SDL2_image.dll next to isogame.exe after every build. -->
+  <Target Name="CopySDL2Dlls" AfterTargets="Build">
+    <ItemGroup>
+      <SDL2Dll Include="$(ProjectDir)external\SDL2\lib\x64\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(SDL2Dll)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

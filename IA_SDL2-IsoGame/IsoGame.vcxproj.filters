@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{1F5F5D6F-0BEB-466A-95CA-22871F783ABA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\iso">
+      <UniqueIdentifier>{80DC98B2-59EB-46F7-970B-58183487F5A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{4CC879E9-F3C1-4546-A0B8-95BB0EA67ACA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0C5B7C2E-3E0B-4C21-9E6B-6F1B1D0A7A11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{6A3D1E52-8B0F-4F6E-A3C4-2B9E5D7F1C33}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\deltatimer.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\initclose.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\logger.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\renderer.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\texture.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\texture_pool.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="iso\isoEngine.cpp">
+      <Filter>Source Files\iso</Filter>
+    </ClCompile>
+    <ClCompile Include="iso\isoMap.cpp">
+      <Filter>Source Files\iso</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\Agent.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\Animation.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\DebugDraw.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\Game.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\MapLoader.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\World.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\deltatimer.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\initclose.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\logger.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\renderer.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\texture.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\texture_pool.hpp">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="iso\isoEngine.hpp">
+      <Filter>Source Files\iso</Filter>
+    </ClInclude>
+    <ClInclude Include="iso\isoMap.hpp">
+      <Filter>Source Files\iso</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Agent.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Animation.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\DebugDraw.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Game.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\MapLoader.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Vector2.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\World.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\WorldObject.hpp">
+      <Filter>Source Files\engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\maps\demo.map">
+      <Filter>Data</Filter>
+    </None>
+    <None Include="README.md" />
+  </ItemGroup>
+</Project>

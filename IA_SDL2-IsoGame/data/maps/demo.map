@@ -1,0 +1,33 @@
+# AI Sandbox — demo map
+# Directives (tile coordinates):
+#   size <width> <height>
+#   tree <tileX> <tileY>            tall billboard tree
+#   block <tileX> <tileY>           cube block (tile-set tile 2)
+#   tile <index> <tileX> <tileY>    any tile-set tile as an object (e.g. 5 = fence)
+#   repeat <count> <dx> <dy> <directive...>   <count> copies, stepping (dx, dy) each time
+
+size 64 64
+
+# a little forest
+tree 20 20
+tree 22 21
+tree 24 19
+tree 26 23
+tree 19 25
+tree 30 30
+tree 33 28
+tree 28 34
+tree 40 40
+tree 44 38
+tree 38 44
+tree 48 26
+tree 26 48
+
+# a row of single cube blocks
+repeat 5 0 1 block 36 28
+
+# a proper tall wall (stacked cubes) — occludes an agent walking behind it
+repeat 5 0 1 wall 42 26
+
+# a row of fence tiles (tile-set tile 5)
+repeat 3 1 0 tile 5 30 40
