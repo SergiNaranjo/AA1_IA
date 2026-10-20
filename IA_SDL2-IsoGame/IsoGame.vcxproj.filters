@@ -63,10 +63,10 @@
     <ClCompile Include="engine\World.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="engine\SoldierManager.cpp">
+    <ClCompile Include="Army.cpp" />
+    <ClCompile Include="engine\Army.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="Army.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\deltatimer.hpp">
@@ -117,10 +117,10 @@
     <ClInclude Include="engine\WorldObject.hpp">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\SoldierManager.h">
+    <ClInclude Include="Army.h" />
+    <ClInclude Include="engine\Army.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="Army.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\maps\demo.map">
