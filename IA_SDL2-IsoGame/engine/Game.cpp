@@ -602,14 +602,10 @@ void Game::updateMouseTarget()
      int tileX, tileY;
     world_.worldToTile(worldPos, tileX, tileY);
     if (world_.inBounds(tileX, tileY)) {
-        Agent &selected = world_.agents[selectedAgentIndex_];
-        selected.target = world_.tileCenter(0, 0);
-        selected.hasTarget = true;
-
-
-        Agent& _selected = world_.agents[1];
-        _selected.target = world_.tileCenter(10, 10);
-        _selected.hasTarget = true;
+        for (Agent &a : world_.agents) {
+            a.target = world_.tileCenter(tileX, tileY);
+            a.hasTarget = true;
+        }
 
     }
 }
