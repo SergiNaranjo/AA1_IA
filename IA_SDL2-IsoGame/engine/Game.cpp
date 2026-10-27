@@ -587,6 +587,34 @@ void Game::clampCameraToMap()
     }
 }
 
+std::vector<Vector2> getGridPositions(Vector2 center, size_t count, float spacing = 32.0f)
+{
+    std::vector<Vector2> positions;
+    positions.reserve(count);
+
+    if (count == 0) return positions;
+
+    // std::ceil ??????????
+    int cols = static_cast<int>(std::ceil(std::sqrt(count)));
+    int rows = static_cast<int>(std::ceil(static_cast<float>(count) / cols));
+
+    // Center the grid over the target point
+    float offsetX = (cols - 1) * spacing * 0.5f;
+    float offsetY = (rows - 1) * spacing * 0.5f;
+
+    for (size_t i = 0; i < count; ++i) {
+        int r = i / cols;
+        int c = i % cols;
+
+        Vector2 pos;
+        pos.x = center.x + (c * spacing) - offsetX;
+        pos.y = center.y + (r * spacing) - offsetY;
+        positions.push_back(pos);
+    }
+
+    return positions;
+}
+
 void Game::updateMouseTarget()
 {
     // Uses the same screenToWorld() transform the ground/grid/agents/objects
@@ -602,9 +630,16 @@ void Game::updateMouseTarget()
      int tileX, tileY;
     world_.worldToTile(worldPos, tileX, tileY);
     if (world_.inBounds(tileX, tileY)) {
-        for (Agent &a : world_.agents) {
-            a.target = world_.tileCenter(tileX, tileY);
-            a.hasTarget = true;
+
+        Vector2 centerTarget = world_.tileCenter(tileX, tileY);
+
+        // Generate distinct positions for all agents (e.g. 32.0f spacing)
+        constexpr float AGENT_SPACING = 32.0f;
+        auto targetPositions = getGridPositions(centerTarget, world_.agents.size(), AGENT_SPACING);
+
+        for (size_t i = 0; i < world_.agents.size(); ++i) {
+            world_.agents[i].target = targetPositions[i];
+            world_.agents[i].hasTarget = true;
         }
 
     }
