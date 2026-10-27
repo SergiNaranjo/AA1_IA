@@ -587,22 +587,22 @@ void Game::clampCameraToMap()
     }
 }
 
-std::vector<Vector2> getGridPositions(Vector2 center, size_t count, float spacing = 32.0f)
+std::vector<Vector2> getGridPositions(Vector2 center, size_t numOfAgents, float spacing = 32.0f)
 {
     std::vector<Vector2> positions;
-    positions.reserve(count);
+    positions.reserve(numOfAgents);
 
-    if (count == 0) return positions;
+    if (numOfAgents == 0) return positions;
 
     // std::ceil ??????????
-    int cols = static_cast<int>(std::ceil(std::sqrt(count)));
-    int rows = static_cast<int>(std::ceil(static_cast<float>(count) / cols));
+    int cols = static_cast<int>(std::ceil(std::sqrt(numOfAgents)));
+    int rows = static_cast<int>(std::ceil(static_cast<float>(numOfAgents) / cols));
 
     // Center the grid over the target point
     float offsetX = (cols - 1) * spacing * 0.5f;
     float offsetY = (rows - 1) * spacing * 0.5f;
 
-    for (size_t i = 0; i < count; ++i) {
+    for (size_t i = 0; i < numOfAgents; ++i) {
         int r = i / cols;
         int c = i % cols;
 
