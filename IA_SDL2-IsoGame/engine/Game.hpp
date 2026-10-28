@@ -6,6 +6,7 @@
 #include "Animation.hpp"
 #include "../core/texture_pool.hpp"
 #include "../iso/isoEngine.hpp"
+#include "Army.h"
 
 // FILE: the runtime - owns the isometric engine, texture pool and World; runs
 // input -> update -> render. Only place that knows both the AI-facing World
@@ -40,6 +41,9 @@ public:
     ~Game();
 
     World &world() { return world_; }
+
+    Army& army() { return army_; }
+    
     // Summary: the main loop - processInput/update/render every frame until
     // Esc or window-close. Blocks until then; call this last.
     void run();
@@ -116,6 +120,7 @@ private:
     TexturePool  texturePool_;
     isoEngineT  *iso_ = nullptr;
     World        world_;
+    Army army_{ world_ };
     std::vector<Animator> animators_;    // one per agent (index-aligned)
     std::vector<int>      facing_;        // last facing per agent (0..15)
     std::vector<Weapon>   weapons_;       // current weapon per agent

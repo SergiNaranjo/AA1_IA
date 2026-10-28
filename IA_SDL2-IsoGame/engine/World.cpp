@@ -62,7 +62,10 @@ void World::addObject(ObjectType type, int tileX, int tileY, int tileIndex)
 
 void World::update(float dt)
 {
-    for (Agent &agent : agents) {
+    for (Agent& agent : agents) {
+        agent.think(*this);
+    }
+    for (Agent& agent : agents) {
         agent.update(dt, *this);
     }
 }

@@ -617,8 +617,6 @@ std::vector<Vector2> getGridPositions(Vector2 center, size_t numOfAgents, float 
 
 void Game::updateMouseTarget()
 {
-    // Uses the same screenToWorld() transform the ground/grid/agents/objects
-    // are drawn with, so the picked tile always matches what's on screen.
     if (world_.agents.empty() || selectedAgentIndex_ >= world_.agents.size()) {
         return;
     }
@@ -627,20 +625,12 @@ void Game::updateMouseTarget()
     SDL_GetMouseState(&mouseX, &mouseY);
     Vector2 worldPos = screenToWorld(mouseX, mouseY);
 
-     int tileX, tileY;
+    int tileX, tileY;
     world_.worldToTile(worldPos, tileX, tileY);
     if (world_.inBounds(tileX, tileY)) {
 
-        Vector2 centerTarget = world_.tileCenter(tileX, tileY);
-
-        // Generate distinct positions for all agents (e.g. 32.0f spacing)
-        constexpr float AGENT_SPACING = 32.0f;
-        auto targetPositions = getGridPositions(centerTarget, world_.agents.size(), AGENT_SPACING);
-
-        for (size_t i = 0; i < world_.agents.size(); ++i) {
-            world_.agents[i].target = targetPositions[i];
-            world_.agents[i].hasTarget = true;
-        }
+        // AA1: el clic es el punto de llegada de TODO el ejercito
+        army_.setObjective(world_.tileCenter(tileX, tileY));
 
     }
 }
@@ -756,6 +746,7 @@ void Game::update(float dt)
 
     // Advance the AI, then sync each agent's animation to its motion.
     world_.update(dt);
+    army_.update(dt);
     updateAnimations(dt);
 }
 

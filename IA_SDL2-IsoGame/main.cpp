@@ -147,6 +147,7 @@ int main(int argc, char *argv[])
         paintDemoInfluence(game.world(), agent, tileX, tileY);
         game.world().agents.push_back(agent);
     }
+    game.army().addAllAgents();
     game.centerCameraOn(game.world().agents[0].position);
 
     // ... and run. Move the mouse; the agents seek the tile under it,

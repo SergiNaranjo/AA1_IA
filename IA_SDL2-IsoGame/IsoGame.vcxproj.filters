@@ -63,7 +63,6 @@
     <ClCompile Include="engine\World.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="Army.cpp" />
     <ClCompile Include="engine\Army.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
@@ -117,10 +116,11 @@
     <ClInclude Include="engine\WorldObject.hpp">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="Army.h" />
     <ClInclude Include="engine\Army.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
+    <ClInclude Include="SteeringBehaviour.hpp" />
+    <ClInclude Include="SteeringBehaviors.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\maps\demo.map">

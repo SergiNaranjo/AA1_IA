@@ -5,6 +5,7 @@
 #include "Agent.hpp"
 #include "World.hpp"
 #include <algorithm>
+#include <SteeringBehaviors.hpp>
 
 namespace {
 
@@ -41,23 +42,48 @@ Vector2 Agent::seek(const Vector2 &seekTarget) const
     return (desired - velocity).truncated(maxForce);
 }
 
-void Agent::update(float dt, const World &world)
+void Agent::think(const World& world)
 {
-    // EXTEND: for now every agent just seeks its own target here. Replace this
-    // with your own steering behaviours (flee, arrive, wander, ...).
-    Vector2 seekTarget = hasTarget ? target : position;
-
-    // Stop cleanly once we are essentially on the target, to avoid jitter.
-    // WATCH OUT: 8.0f is a distance in world units, not tiles - like maxSpeed/
-    // maxForce/radius in Agent.hpp, it scales with World::tileSize, so keep it
-    // proportional if tileSize ever changes.
-    const float arriveRadius = 8.0f;
-    if (distance(position, seekTarget) <= arriveRadius) {
-        velocity = Vector2(0.0f, 0.0f);
+    hasPendingSteering_ = false;
+    if (behavior == nullptr) {
         return;
     }
+    SteeringContext ctx;
+    ctx.world = &world;
+    if (groupId >= 0) {
+        for (const Agent& other : world.agents) {
+            if (&other == this || other.groupId != groupId) continue;
+            if (distance(position, other.position) <= neighborRadius) {
+                ctx.neighbors.push_back(&other);
+            }
+        }
+    }
+    pendingSteering_ = behavior->GetSteering(*this, ctx).linear;
+    hasPendingSteering_ = true;
+}
 
-    Vector2 steering = seek(seekTarget);
+void Agent::update(float dt, const World& world)
+{
+    Vector2 steering;
+    if (hasPendingSteering_) {
+        steering = pendingSteering_.truncated(maxForce);
+        hasPendingSteering_ = false;
+        // Parada limpia: casi quieto y sin fuerza apreciable -> quieto del todo.
+        if (velocity.length() < 3.0f && steering.length() < 40.0f) {
+            velocity = Vector2(0.0f, 0.0f);
+            return;
+        }
+    }
+    else {
+        // Comportamiento por defecto del framework: seek al target.
+        Vector2 seekTarget = hasTarget ? target : position;
+        const float arriveRadius = 8.0f;
+        if (distance(position, seekTarget) <= arriveRadius) {
+            velocity = Vector2(0.0f, 0.0f);
+            return;
+        }
+        steering = seek(seekTarget);
+    }
 
     // Integrate: acceleration -> velocity (frame-rate independent).
     velocity = (velocity + steering * dt).truncated(maxSpeed);

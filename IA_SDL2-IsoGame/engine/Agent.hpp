@@ -4,7 +4,7 @@
 #include "Vector2.hpp"
 
 class World; // forward declaration (Agent.cpp includes World.hpp)
-
+class SteeringBehavior;
 // FILE: a moving agent - the thing students' AI actually drives.
 // FITS IN: pure kinematics/AI, no SDL/rendering/isometric maths (Game draws it).
 // EXTEND: Agent::update below is where steering happens - for now it always
@@ -29,6 +29,12 @@ public:
     // agent's target on click).
     Vector2 target;
     bool    hasTarget = false;
+
+    // --- AA1: steering behaviors (composite) ---
+    SteeringBehavior* behavior = nullptr;   // no propietario; nullptr = seek por defecto
+    int   groupId = -1;              // ejercito al que pertenece (-1 = ninguno)
+    float neighborRadius = 256.0f;
+    void think(const World& world);         // fase 1: calcula la fuerza
 
     // Summary: advance the agent by dt seconds (the per-frame AI tick).
     // Inputs: dt = seconds since last call; world = read-only tile grid/obstacles.
@@ -57,6 +63,8 @@ private:
     // Errors: none (normalized() below handles seekTarget == position safely).
     // EXTEND: the only steering behaviour provided - add flee/arrive/wander
     // alongside it (or replace it).
+    Vector2 pendingSteering_;
+    bool    hasPendingSteering_ = false;
     Vector2 seek(const Vector2 &seekTarget) const;
 
     int                influenceWidth_  = 0;
