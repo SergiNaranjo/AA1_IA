@@ -87,7 +87,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Army.cpp" />
     <ClCompile Include="engine\Army.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="core\deltatimer.cpp" />
@@ -106,7 +105,6 @@
     <ClCompile Include="engine\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Army.h" />
     <ClInclude Include="core\deltatimer.hpp" />
     <ClInclude Include="core\initclose.hpp" />
     <ClInclude Include="core\logger.hpp" />
@@ -114,6 +112,7 @@
     <ClInclude Include="core\texture.hpp" />
     <ClInclude Include="core\texture_pool.hpp" />
     <ClInclude Include="engine\Army.h" />
+    <ClInclude Include="engine\Steering.h" />
     <ClInclude Include="iso\isoEngine.hpp" />
     <ClInclude Include="iso\isoMap.hpp" />
     <ClInclude Include="engine\Agent.hpp" />

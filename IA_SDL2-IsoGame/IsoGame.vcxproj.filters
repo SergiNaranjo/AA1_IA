@@ -16,6 +16,9 @@
     <Filter Include="Data">
       <UniqueIdentifier>{6A3D1E52-8B0F-4F6E-A3C4-2B9E5D7F1C33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\engine\Steerings">
+      <UniqueIdentifier>{03d1de40-4fb5-46ba-9b49-500bbd854ffc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,7 +66,6 @@
     <ClCompile Include="engine\World.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="Army.cpp" />
     <ClCompile Include="engine\Army.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
@@ -117,10 +119,10 @@
     <ClInclude Include="engine\WorldObject.hpp">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="Army.h" />
     <ClInclude Include="engine\Army.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
+    <ClInclude Include="engine\Steering.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\maps\demo.map">

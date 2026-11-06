@@ -138,7 +138,8 @@ int main(int argc, char *argv[])
     int centerX = game.world().widthTiles / 2;
     int centerY = game.world().heightTiles / 2;
     const int spawnOffsets[12][2] = { { 0,  0 }, { -2, -2 }, {  2, -2 }, { -4, -4 }, {  0, -4 }, { 4, -4 }, { -6, -6 }, { -2, -6 }, {  2, -6 }, {  3, -6 }, {  2, 5 }, {  6, -6 } };
-    for (const auto& offset : spawnOffsets) {
+    for (const auto& offset : spawnOffsets) 
+    {
         int tileX = centerX + offset[0];
         int tileY = centerY + offset[1];
         nudgeOffBlockedTile(game.world(), tileX, tileY);

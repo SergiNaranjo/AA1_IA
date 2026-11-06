@@ -58,6 +58,8 @@ private:
     // EXTEND: the only steering behaviour provided - add flee/arrive/wander
     // alongside it (or replace it).
     Vector2 seek(const Vector2 &seekTarget) const;
+    Vector2 flee(const Vector2& seekTarget) const;
+    Vector2 arrive(const Vector2& seekTarget) const;
 
     int                influenceWidth_  = 0;
     int                influenceHeight_ = 0;
