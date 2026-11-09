@@ -35,10 +35,11 @@ bool canOccupy(const World &world, const Vector2 &center, float radius)
 
 Vector2 Agent::seek(const Vector2 &seekTarget) const
 {
-    // Desired velocity: full speed straight at the target.
-    Vector2 desired = (seekTarget - position).normalized() * maxSpeed;
-    // Steering force = desired velocity minus current velocity, clamped.
-    return (desired - velocity).truncated(maxForce);
+    //// Desired velocity: full speed straight at the target.
+    //Vector2 desired = (seekTarget - position).normalized() * maxSpeed;
+    //// Steering force = desired velocity minus current velocity, clamped.
+    //return (desired - velocity).truncated(maxForce);
+    return Vector2(0, 0);
 }
 
 void Agent::update(float dt, const World &world)

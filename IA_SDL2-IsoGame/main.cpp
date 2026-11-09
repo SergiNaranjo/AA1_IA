@@ -152,6 +152,7 @@ int main(int argc, char *argv[])
 
     // ... and run. Move the mouse; the agents seek the tile under it,
     // and the trees/blocks from the map file are placed as obstacles.
+    //Update
     game.run();
 
     closeDownSDL();

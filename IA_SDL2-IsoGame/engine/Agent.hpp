@@ -51,6 +51,7 @@ public:
     float influenceAt(int tileX, int tileY) const;   // 0 if out of bounds or uninitialised
     void  clearInfluence();
 
+
 private:
     // Summary: Reynolds "seek" - steering force toward moving at full speed
     // straight at seekTarget. Output: a force (acceleration); no side effects.

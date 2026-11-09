@@ -122,7 +122,24 @@
     <ClInclude Include="engine\Army.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\Steering.h" />
+    <ClInclude Include="engine\Arrive.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\CompositeBehaviour.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Flee.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Seek.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\Steering.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="core\BehaviourSelector.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\maps\demo.map">
