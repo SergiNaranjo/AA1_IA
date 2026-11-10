@@ -2,6 +2,15 @@
 #include <SDL2/SDL.h>
 #include <engine/Steering.h>
 
+// CAMBIO POR FUNCIONAMIENTO
+// ----------------------------------
+
+#include <engine/Flee.h>
+#include <engine/Seek.h>
+#include <engine/Arrive.h>
+
+// ----------------------------------
+
 class BehaviourSelector
 {
 public:
@@ -27,11 +36,19 @@ private:
 	{
 		current_ = b;
 		for (Agent& a : w.agents) 
-			a.behaviour = b;
+			a.behaviour = b; // VARIABLE AÑADIDA A STEERING.H PARA QUE FUNCIONE
 	}
+
+	// CAMBIO POR FUNCIONAMIENTO
+	// ----------------------------------
+
+	// INCLUDES AÑADIDOS PARA QUE FUNCIONE
 
 	Seek seek_;
 	Flee flee_;
 	Arrive arrive_;
+
+	// ----------------------------------
+
 	SteeringBehaviour* current_ = &seek_;
 };

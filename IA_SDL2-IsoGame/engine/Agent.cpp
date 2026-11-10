@@ -5,6 +5,7 @@
 #include "Agent.hpp"
 #include "World.hpp"
 #include <algorithm>
+#include <engine/Steering.h> // AÑADIDO PARA QUE FUNCIONE
 
 namespace {
 
@@ -58,7 +59,17 @@ void Agent::update(float dt, const World &world)
         return;
     }
 
-    Vector2 steering = seek(seekTarget);
+    // CAMBIO POR FUNCIONAMIENTO
+    // ------------------------------------------------------------
+
+    Vector2 steering(0.0f, 0.0f); // Vector2 steering = seek(seekTarget); <--- ANTES ERA ASÍ
+
+    if (behaviour)
+    {
+        steering = behaviour->GetSteering(*this, world);
+    }
+
+    // ------------------------------------------------------------
 
     // Integrate: acceleration -> velocity (frame-rate independent).
     velocity = (velocity + steering * dt).truncated(maxSpeed);

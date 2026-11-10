@@ -3,7 +3,9 @@
 #include <vector>
 #include "Vector2.hpp"
 
+
 class World; // forward declaration (Agent.cpp includes World.hpp)
+class SteeringBehaviour;
 
 // FILE: a moving agent - the thing students' AI actually drives.
 // FITS IN: pure kinematics/AI, no SDL/rendering/isometric maths (Game draws it).
@@ -22,6 +24,8 @@ public:
     float   maxForce = 2800.0f;       // maximum steering acceleration (units / second^2)
     float   radius   = 16.0f;         // body radius, for later collision / arrival
     float   heading  = 0.0f;          // facing angle in radians (derived from velocity)
+
+    SteeringBehaviour* behaviour = nullptr; // AÑADIDO PARA QUE FUNCIONE PERO NO ES DUEÑO, LO GESTIONA BehaviourSelector
 
     // Current steering target in world-space, and whether one is set. Each
     // agent's own - not shared - so e.g. Game can point different agents at
