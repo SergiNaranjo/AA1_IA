@@ -17,6 +17,7 @@
 #include <cstdio>
 #include <vector>
 #include <algorithm>
+#include "BehaviourSelector.h"
 
 namespace {
 
@@ -721,6 +722,14 @@ void Game::processInput()
             // Set the steering target on click, not continuously on hover.
             // (updateMouseTarget reads the mouse position itself, fresh.)
             updateMouseTarget();
+        }
+
+        //Else if para cambiar los estados
+        else if (event.type == SDL_KEYUP && selector_ && (event.key.keysym.scancode == SDL_SCANCODE_1 ||
+                event.key.keysym.scancode == SDL_SCANCODE_2 ||
+                event.key.keysym.scancode == SDL_SCANCODE_3)) 
+        {
+            selector_->OnKey(event.key.keysym.sym, world_);
         }
     }
 }

@@ -43,24 +43,28 @@ Vector2 Agent::seek(const Vector2 &seekTarget) const
     return Vector2(0, 0);
 }
 
+
+
 void Agent::update(float dt, const World &world)
 {
-    // EXTEND: for now every agent just seeks its own target here. Replace this
-    // with your own steering behaviours (flee, arrive, wander, ...).
-    Vector2 seekTarget = hasTarget ? target : position;
+    //// EXTEND: for now every agent just seeks its own target here. Replace this
+    //// with your own steering behaviours (flee, arrive, wander, ...).
+    //Vector2 seekTarget = hasTarget ? target : position;
 
-    // Stop cleanly once we are essentially on the target, to avoid jitter.
-    // WATCH OUT: 8.0f is a distance in world units, not tiles - like maxSpeed/
-    // maxForce/radius in Agent.hpp, it scales with World::tileSize, so keep it
-    // proportional if tileSize ever changes.
-    const float arriveRadius = 8.0f;
-    if (distance(position, seekTarget) <= arriveRadius) {
-        velocity = Vector2(0.0f, 0.0f);
-        return;
-    }
+    //// Stop cleanly once we are essentially on the target, to avoid jitter.
+    //// WATCH OUT: 8.0f is a distance in world units, not tiles - like maxSpeed/
+    //// maxForce/radius in Agent.hpp, it scales with World::tileSize, so keep it
+    //// proportional if tileSize ever changes.
+    //const float arriveRadius = 8.0f;
+    //if (distance(position, seekTarget) <= arriveRadius) {
+    //    velocity = Vector2(0.0f, 0.0f);
+    //    return;
+    //}
 
     // CAMBIO POR FUNCIONAMIENTO
     // ------------------------------------------------------------
+
+
 
     Vector2 steering(0.0f, 0.0f); // Vector2 steering = seek(seekTarget); <--- ANTES ERA ASÍ
 

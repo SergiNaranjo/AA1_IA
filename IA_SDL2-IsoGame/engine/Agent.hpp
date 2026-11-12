@@ -15,7 +15,7 @@ class SteeringBehaviour;
 class Agent
 {
 public:
-    Vector2 position;                 // world-space position
+    Vector2 position;                // world-space position
     Vector2 velocity;                 // world-space velocity (units / second)
     // WATCH OUT: tuned relative to World::tileSize (currently 64 units/tile).
     // Keep these proportional to tileSize so behaviour (tiles/second, tiles

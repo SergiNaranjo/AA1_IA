@@ -13,6 +13,7 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
+#include "engine/BehaviourSelector.h"
 
 // 128: pixel width of a ground tile's iso diamond on screen (halved
 // internally to a 64-unit world tile - see Game::init's WATCH OUT comment).
@@ -148,6 +149,11 @@ int main(int argc, char *argv[])
         paintDemoInfluence(game.world(), agent, tileX, tileY);
         game.world().agents.push_back(agent);
     }
+
+    BehaviourSelector selector;
+    selector.Apply(game.world());
+    game.SetBehaviourSelector(&selector);
+
     game.centerCameraOn(game.world().agents[0].position);
 
     // ... and run. Move the mouse; the agents seek the tile under it,

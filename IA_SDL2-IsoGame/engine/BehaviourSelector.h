@@ -14,7 +14,7 @@
 class BehaviourSelector
 {
 public:
-	bool OnKey(SDL_Keycode key, World& world) 
+	bool OnKey(SDL_Keycode key, World& world)
 	{
 		switch (key) {
 		case SDLK_1: Select(&seek_, world); return true;
@@ -23,7 +23,7 @@ public:
 		}
 		return false;
 
-		
+
 	}
 
 	void Apply(World& world)
@@ -35,14 +35,14 @@ private:
 	void Select(SteeringBehaviour* b, World& w)
 	{
 		current_ = b;
-		for (Agent& a : w.agents) 
-			a.behaviour = b; // VARIABLE AÑADIDA A STEERING.H PARA QUE FUNCIONE
+		for (Agent& a : w.agents)
+			a.behaviour = b; // VARIABLE AÃ‘ADIDA A STEERING.H PARA QUE FUNCIONE
 	}
 
 	// CAMBIO POR FUNCIONAMIENTO
 	// ----------------------------------
 
-	// INCLUDES AÑADIDOS PARA QUE FUNCIONE
+	// INCLUDES AÃ‘ADIDOS PARA QUE FUNCIONE
 
 	Seek seek_;
 	Flee flee_;

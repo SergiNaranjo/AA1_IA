@@ -27,6 +27,9 @@
 // of a key (see cycleWeapon below).
 enum class Weapon { Unarmed, Sword, Bow };
 
+//Forward declaration
+class BehaviourSelector;
+
 class Game
 {
 public:
@@ -48,6 +51,8 @@ public:
     // Typically called once after placing the initial agent(s).
     void centerCameraOn(const Vector2 &worldPos);
 
+    //Funcion que se usa para pillar los steerings
+    void SetBehaviourSelector(BehaviourSelector* s) { selector_ = s; }
 private:
     void init(int mapWidthTiles, int mapHeightTiles, int tileSize);
     // EXTEND: new keybindings/test controls go in here (see the else-if
@@ -127,6 +132,9 @@ private:
     bool         debugMode_ = false;   // F1: steering target/line + object tile markers
     bool         showGrid_  = false;   // G: code-drawn corner-dot tile grid
     size_t       selectedAgentIndex_ = 0;   // Left/Right: which agent Click targets / F1 inspects
+    
+    //Declaración del Selector
+    BehaviourSelector* selector_ = nullptr;
 };
 
 #endif // ENGINE_GAME_HPP

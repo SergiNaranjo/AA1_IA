@@ -105,7 +105,6 @@
     <ClCompile Include="engine\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="core\BehaviourSelector.h" />
     <ClInclude Include="core\deltatimer.hpp" />
     <ClInclude Include="core\initclose.hpp" />
     <ClInclude Include="core\logger.hpp" />
@@ -114,6 +113,7 @@
     <ClInclude Include="core\texture_pool.hpp" />
     <ClInclude Include="engine\Army.h" />
     <ClInclude Include="engine\Arrive.h" />
+    <ClInclude Include="engine\BehaviourSelector.h" />
     <ClInclude Include="engine\CompositeBehaviour.h" />
     <ClInclude Include="engine\Flee.h" />
     <ClInclude Include="engine\Seek.h" />
