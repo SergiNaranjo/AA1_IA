@@ -725,9 +725,13 @@ void Game::processInput()
         }
 
         //Else if para cambiar los estados
-        else if (event.type == SDL_KEYUP && selector_ && (event.key.keysym.scancode == SDL_SCANCODE_1 ||
+        else if (event.type == SDL_KEYUP && selector_ && (
+                event.key.keysym.scancode == SDL_SCANCODE_1 ||
                 event.key.keysym.scancode == SDL_SCANCODE_2 ||
-                event.key.keysym.scancode == SDL_SCANCODE_3)) 
+                event.key.keysym.scancode == SDL_SCANCODE_3 ||
+                event.key.keysym.scancode == SDL_SCANCODE_4 ||
+                event.key.keysym.scancode == SDL_SCANCODE_5
+            )) 
         {
             selector_->OnKey(event.key.keysym.sym, world_);
         }

@@ -116,8 +116,10 @@
     <ClInclude Include="engine\BehaviourSelector.h" />
     <ClInclude Include="engine\CompositeBehaviour.h" />
     <ClInclude Include="engine\Flee.h" />
+    <ClInclude Include="engine\PrioritizedList.h" />
     <ClInclude Include="engine\Seek.h" />
     <ClInclude Include="engine\Steering.h" />
+    <ClInclude Include="engine\WeightedBlending.h" />
     <ClInclude Include="iso\isoEngine.hpp" />
     <ClInclude Include="iso\isoMap.hpp" />
     <ClInclude Include="engine\Agent.hpp" />

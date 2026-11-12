@@ -140,6 +140,12 @@
     <ClInclude Include="engine\BehaviourSelector.h">
       <Filter>Source Files\engine\Steerings</Filter>
     </ClInclude>
+    <ClInclude Include="engine\WeightedBlending.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\PrioritizedList.h">
+      <Filter>Source Files\engine\Steerings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="data\maps\demo.map">
